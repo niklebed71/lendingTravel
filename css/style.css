@@ -1,0 +1,272 @@
+/*Обнуление*/
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+/*--------------------*/
+
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	background: url(../img/bg.png) 50% -100px no-repeat;
+}
+
+/*для фиксированной верстки
+  
+.content {
+	margin: 0 auto;
+	max-width: 860px;
+	padding: 30px 10px;
+}*/
+/*отзывчивая резиновая верстка*/
+.content {
+	margin: 0 auto;
+	max-width: 860px;
+	padding: 30px 10px;
+}
+
+@media (max-width: 860px) {
+	.content {
+		max-width: 750px;
+	}
+	.content-img {
+		display: none;
+	}
+	body {
+		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+		background: none;
+	}
+}
+@media (max-width: 767px) {
+	.content {
+		max-width: none;
+	}
+}
+
+.content-top {
+	text-align: center;
+	font-size: 25px;
+	margin: 0 0 30px 0;
+}
+
+.content-top-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+}
+.content-top h1 {
+	line-height: 30px;
+}
+.content-img {
+	border: 10px solid wheat;
+	text-align: center;
+}
+
+.content-bottom {
+}
+.content-bottom-text {
+	margin: 30px 0 50px 0;
+	line-height: 25px;
+}
+.content-bottom-text p {
+	margin: 30px 0 0 0;
+}
+.content-bottom-info ul li {
+	margin: 15px 0 0 0;
+	background: url(../img/icons/li.svg) left no-repeat;
+	padding: 0 0px 0 20px;
+}
+.content-bottom-info ul li:first-child {
+	font-weight: 600;
+}
+.content-bottom-info ul li:nth-child(2) {
+	font-weight: 800;
+	color: green;
+	font-style: oblique;
+}
+.content-bottom-info ul li:nth-child(3) {
+	font-weight: 800;
+}
+.content-bottom-info ul li:last-child {
+	color: grey;
+	font-weight: 300;
+	text-decoration: line-through;
+}
+
+.content-bottom-info ul {
+	margin: 0 0 30px 0;
+}
+.content-bottom-info a {
+	background-color: blue;
+	border-radius: 20px;
+	height: 30px;
+	padding: 0 30px;
+	color: wheat;
+	display: inline-block;
+	font-size: 12px;
+	-webkit-box-shado: 0px 5px 1 px black;
+	box-shadow: 0px 5px 1px grey;
+}
+.content-bottom-info a:hover {
+	background-color: red;
+}
+.content-bottom-info a:active {
+	position: relative;
+	top: 7px;
+	box-shado: 0px 0px 0px black;
+}
+
+.content-bottom-info-link span {
+	display: inline-block;
+	background: url(../img/arrow.svg) right no-repeat;
+
+	padding: 10px 25px 10px 5px;
+}
+@media (max-width: 500px) {
+	/*  Рисуем Бургер. 
+	Задаем размер и местоположение бургера */
+	.header-burger {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 25px;
+		margin: 0 0 50px 50px;
+		z-index: 3;
+	}
+	/*  Рисуем бургер верхнюю и нижнюю палочки */
+	.header-burger:before,/* верхняя палочка */
+	.header-burger:after/*нижняя палочка */ {
+		content: "";
+		background-color: black;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		z-index: 3;
+		transition: all 0.7s ease 0s; /*плавность перехода в крестик за 0.7сек */
+	}
+	.header-burger:before {
+		top: 0;
+	}
+	.header-burger:after {
+		bottom: 0;
+	}
+	/*  Рисуем среднюю палочку вот для этого в хтмл вставляли спан */
+	.header-burger span {
+		background-color: black;
+		position: absolute;
+		left: 0;
+		top: 12px;
+		width: 100%;
+		height: 2px;
+		transition: all 0.3s ease 0s;
+	}
+
+	/*  Рисуем бургер до сюда */
+
+	/* жс сделали так что при нажатии бургера header-burger становится активным
+	и его классам before и after приказываем изменяться при этом вот так
+	т.е. палочка нижней и верхней полоски бургера смещаются рисуя крестик а 
+	span даем  свойство transform с функцией  scale(0) это маштабирование 
+	обьекта при 0 обьект исчезаети т.е. средняя палочка исчезает*/
+	.header-burger.active:before {
+		transform: rotate(45deg);
+		top: 11px;
+	}
+	.header-burger.active:after {
+		transform: rotate(-45deg);
+		bottom: 11px;
+	}
+	.header-burger.active span {
+		transform: scale(0);
+	} /*  Крестик и нет крестика до сюда */
+	.header-menu {
+		position: fixed;
+		top: -100%; /*убираем меню вверх что бы не видно было
+	когда бургер */
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: darkcyan;
+		padding: 80px 0 0 0;
+		transition: all 0.7s ease 0s;
+		overflow: auto;
+		/* при развороте тел последние пункты меню могут не 
+	влезать на экран что бы до них добраться проскролив
+	стовим оверфло авто*/
+		z-index: ;
+	}
+	.header-menu.active {
+		/*меню возвращается сверху когда 
+	нажимаем на бургер */
+		top: 0;
+	}
+}
